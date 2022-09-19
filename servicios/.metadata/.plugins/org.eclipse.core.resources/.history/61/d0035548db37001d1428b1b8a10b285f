@@ -1,0 +1,28 @@
+package com.reto.controller;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.reto.entity.UserRole;
+import com.reto.entity.Usuario;
+import com.reto.repository.UsuarioRepository;
+import com.reto.service.UserService;
+
+@RestController
+@RequestMapping("/usuarios")
+public class UsuarioController {
+	
+	@Autowired
+	private UserService usuarioService;
+	
+	@PostMapping("/")
+	public Usuario guardar(@RequestBody Usuario usuario) throws Exception{
+		Set<UserRole> roles = new HashSet<>()
+	}
+}

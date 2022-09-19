@@ -1,0 +1,46 @@
+.add-content {
+  background-color: var(--lighter-bg);
+  box-shadow: 8px 7px 10px 0px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 8px 7px 10px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 8px 7px 10px 0px rgba(0,0,0,0.5);
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.botonera {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+select, input {
+  background-color: var(--bg-color) !important;
+  color: var(--font-color) !important;
+  font-size: 1.5rem !important;
+}
+
+.entradas > div {
+  margin: 5px 0px;
+}
+.entradas {
+  padding-bottom: 10px;
+}
+
+.add {
+  border: none;
+  border-radius: 10px;
+  background-color: var(--secondary-color);
+  padding: 8px 5px;
+  margin: 6px;
+  margin-left: auto;
+  transition: 0.2s ease-out;
+  color: var(--font-color);
+  font-weight: bold;
+}
+
+.add:hover {
+  opacity: 0.9;
+  transition: 0.2s ease-in;
+}

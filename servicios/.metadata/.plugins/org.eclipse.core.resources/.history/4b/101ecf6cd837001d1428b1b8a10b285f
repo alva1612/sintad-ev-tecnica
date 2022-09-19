@@ -1,0 +1,28 @@
+package com.reto.entity;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name = "roles")
+@Data
+public class Role {
+	@Id
+	@Column(name = "id")
+	private Long roleId;
+	private String name;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,
+			mappedBy = "role")
+	private Set<UserRole> userRoles = new HashSet<>();
+}

@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "ead904f6-3b95-41f1-bae4-29cfa56fee08",
+		"name": "Sintad-Prueba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21071024"
+	},
+	"item": [
+		{
+			"name": "Listados",
+			"item": [
+				{
+					"name": "lista entidades",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/entidad",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"entidad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lista docuemto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/tdocumento",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"tdocumento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lista contribuye",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/tcontribuyente",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"tcontribuyente"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Security",
+			"item": [
+				{
+					"name": "usuarios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"alex\",\n    \"email\": \"alex\",\n    \"password\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/usuarios/",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/usuarios/alvaro/",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"usuarios",
+								"alvaro",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/usuarios/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"usuarios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GenrateTOken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"password\" : \"123456\",\n    \"username\" : \"alvaro\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/generate-token/",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"generate-token",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "nueva Entidad",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"tipoDocumento\": \"1\",\n\"numdocumento\": \"N000006\",\n\"razonSocial\": \"211123457\",\n\"nomComercial\": \"Servicios Bancarios Hogar\",\n\"tipoContribuyente\": \"2\",\n\"estado\": true,\n\"direccion\":\"Direccion\",\n\"telefono\": \"987986917\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/entidad",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"entidad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/entidad/25",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"entidad",
+						"25"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateEntidad",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"id\" : \"26\",\n\"tipoDocumento\": \"1\",\n\"numdocumento\": \"N000009\",\n\"razonSocial\": \"211123459\",\n\"nomComercial\": \"Nosadas Hogar\",\n\"tipoContribuyente\": \"2\",\n\"estado\": true,\n\"direccion\":\"Direccion\",\n\"telefono\": \"987986919\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/entidad",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"entidad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/entidad/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"entidad",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "password",
+			"value": "8e0393ee-e945-40b7-85e9-59aed2f88e98"
+		}
+	]
+}

@@ -1,0 +1,28 @@
+package com.reto.impl;
+
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.reto.entity.User;
+import com.reto.entity.UserRole;
+import com.reto.repository.RoleRepository;
+import com.reto.repository.UsuarioRepository;
+import com.reto.service.UserService;
+
+@Service
+public class UserServiceImplementation implements UserService {
+
+	@Autowired
+	private UsuarioRepository userRepo;
+	
+	@Autowired
+	private RoleRepository roleRepo;
+
+	@Override
+	public User guardarUsuario(User user, Set<UserRole> usuarioRoles) throws Exception {
+		
+		User usuarioLocal = userRepo.findByUsername(user.getUsername());
+	}
+}

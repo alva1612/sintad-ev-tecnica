@@ -1,0 +1,58 @@
+<!-- Modal -->
+<div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content edit-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Editar Entidad</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="Editar(nuevaEntidad)">
+          <div class="row entradas">
+            <div class="col-12 form-group">
+              <label for="razon-social">Razón Social:</label>
+              <input class="form-control" type="text" name="razon-social" id="razon-social"
+              [(ngModel)]="nuevaEntidad.razonSocial">
+            </div>
+            <div class="col-12">
+              <label for="razon-social">Nombre Comercial:</label>
+              <input class="form-control" type="text" name="nom-comercial" id="nom-comercial"
+              [(ngModel)]="nuevaEntidad.nomComercial">
+            </div>
+            <div class="col-6">
+              <label for="tipo-cont">Contribuyente:</label>
+              <select class="form-select" name="tipo-cont" id="tipo-cont"
+              [(ngModel)]="nuevaEntidad.tipoContribuyente" >
+                <option *ngFor="let tipoCont of tiposCont" [ngValue]="tipoCont.id">{{tipoCont.nombre}}</option>
+              </select>
+            </div>
+            <div class="col-6">
+              <label for="telefono">Teléfono:</label>
+              <input type="text" name="telefono" id="telefono" class="form-control"
+              [(ngModel)]="nuevaEntidad.telefono">
+            </div>
+            <div class="col-12">
+              <label for="direccion">Dirección:</label>
+              <input class="form-control" type="text" name="direcion" id="direccion"
+              [(ngModel)]="nuevaEntidad.direccion">
+            </div>
+            <div class="col-6">
+              <label for="tipo-doc">Documento:</label>
+              <select class="form-select" name="tipo-doc" id="tipo-doc"
+              [(ngModel)]="nuevaEntidad.tipoDocumento">
+                <option *ngFor="let tipoDoc of tiposDoc" [ngValue]="tipoDoc.id">{{tipoDoc.descripcion}}</option>
+              </select>
+              <label for="num-doc">Número:</label>
+              <input class="form-control" type="text" name="num-doc" id="num-doc"
+              [(ngModel)]="nuevaEntidad.numdocumento">
+            </div>
+            <div class="col-6 botonera">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

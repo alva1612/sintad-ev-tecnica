@@ -1,0 +1,21 @@
+package com.reto.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name = "tb_tipo_documento")
+@Data
+public class TipoDocumento {
+
+	@Id
+	private int idTipoDocumento;
+	
+	private String codigo;
+	private String nombre;
+	private String descripcion;
+	private int estado;
+}

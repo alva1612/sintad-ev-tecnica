@@ -1,0 +1,9 @@
+package com.reto.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.reto.entity.User;
+
+public interface UsuarioRepository extends JpaRepository<User, Long>{
+	public User findByUsername(String username);
+}

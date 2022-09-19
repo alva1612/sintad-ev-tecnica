@@ -1,0 +1,53 @@
+<app-add></app-add>
+<app-edit [nuevaEntidad]="currentEntidad"></app-edit>
+<table>
+  <thead>
+    <th>#</th>
+    <th>TIPO DOCUMENTO</th>
+    <th>NUM. DOCUMENTO</th>
+    <th>RAZON SOCIAL</th>
+    <th>NOMBRE COMERCIAL</th>
+    <th>TIPO CONTRIBUYENTE</th>
+    <th>ACCIONES</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let entidad of entidades; let i = index">
+      <td>
+        {{ i + 1 }}
+      </td>
+      <td>
+        {{ entidad.tipoDocumento.descripcion }}
+      </td>
+      <td>
+        {{ entidad.numdocumento }}
+      </td>
+      <td>
+        {{ entidad.razonSocial }}
+      </td>
+      <td>
+        {{ entidad.nomComercial }}
+      </td>
+      <td>
+        {{ entidad.tipoContribuyente.nombre }}
+      </td>
+      <td class="">
+        <div class="actions">
+          <button class="edit" data-bs-toggle="modal" data-bs-target="#edit-modal"
+          (click)="buscarEntidad(entidad.id)">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </button>
+          <button class="trash" (click)="delete(entidad.id)">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td></td><td></td><td></td>
+      <td></td><td></td><td>Total</td>
+      <td>{{ entidades.length }}</td>
+    </tr>
+  </tfoot>
+</table>

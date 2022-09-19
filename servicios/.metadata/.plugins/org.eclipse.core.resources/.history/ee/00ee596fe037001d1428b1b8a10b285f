@@ -1,0 +1,5 @@
+package com.reto.impl;
+
+public class UserDetailsServiceImpl {
+
+}

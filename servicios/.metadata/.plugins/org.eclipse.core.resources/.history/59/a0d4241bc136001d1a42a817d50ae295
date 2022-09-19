@@ -1,0 +1,90 @@
+package com.reto.controller;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.reto.entity.Entidad;
+import com.reto.service.EntidadService;
+
+@RestController
+@RequestMapping("/entidad")
+public class EntidadController {
+	@Autowired
+	private EntidadService service;
+	
+	@GetMapping
+	@ResponseBody
+	public ResponseEntity<List<Entidad>> listaEntidad() {
+		List<Entidad> lst = service.listaEntidad();
+		return ResponseEntity.ok(lst);
+	}
+	
+	@PostMapping
+	@ResponseBody
+	public ResponseEntity<?> inserta(@Valid @RequestBody Entidad obj, Errors errors){
+		HashMap<String, Object> salida = new HashMap<>();
+		
+		List<ObjectError> lstErrors = errors.getAllErrors();
+		List<String> lstMensajes = new ArrayList<String>();
+		
+		for (ObjectError objErr : lstErrors) {
+			String err = objErr.getDefaultMessage();
+			lstMensajes.add(err);
+		}
+		if (!CollectionUtils.isEmpty(lstMensajes)) {
+			salida.put("errores", lstMensajes);
+			return ResponseEntity.ok(salida);
+		}
+
+		//Suponinendo que el nroDocumento debe de ser unico
+		Optional<Entidad> optEntidad = service.buscarEntidadNumDoc(obj.getNumdocumento());
+		if (optEntidad.isPresent()) {
+			salida.put("mensaje", "Num Documento repetido: " + obj.getNumdocumento());
+		}
+		
+		Entidad objSalida = service.insertaEntidad(obj);
+		if(objSalida == null) {
+			salida.put("mensaje", "Error al registrar");
+		} else {
+			salida.put("mensaje", "Nueva entidad: " + objSalida.getId());
+		}
+		
+		return ResponseEntity.ok(salida);
+	}
+	
+	@DeleteMapping("/{id}")
+	@ResponseBody
+	public ResponseEntity<?> borrar(@PathVariable("id") int id) {
+		HashMap<String, Object> salida = new HashMap<>();
+		Optional<Entidad> optEntidad = service.buscarEntidadId(id);
+		
+		if (optEntidad.isEmpty()) {
+			salida.put("mensaje", "Id no encontrado: " + id);
+		} else {
+			service.eliminaEntidad(id);
+			salida.put("mensaje", "Entidad Eliminada: " + id);
+		}
+		
+		
+	}
+	
+}

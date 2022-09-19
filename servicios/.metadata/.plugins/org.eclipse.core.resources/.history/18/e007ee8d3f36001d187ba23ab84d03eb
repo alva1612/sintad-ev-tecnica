@@ -1,0 +1,9 @@
+package com.reto.entity;
+
+import lombok.Data;
+
+@Table(name = "tb_tipo_documento")
+@Data
+public class TipoDocumento {
+
+}

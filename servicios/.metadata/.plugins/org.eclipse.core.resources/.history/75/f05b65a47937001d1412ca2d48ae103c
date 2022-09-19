@@ -1,0 +1,16 @@
+package com.reto.impl;
+
+import java.util.Optional;
+
+import com.reto.entity.TipoContribuyente;
+import com.reto.service.TipoContribuyenteService;
+
+public class TipoContribuyenteImplementation implements TipoContribuyenteService {
+
+	@Override
+	public Optional<TipoContribuyente> buscarTipo(int id) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+	
+}

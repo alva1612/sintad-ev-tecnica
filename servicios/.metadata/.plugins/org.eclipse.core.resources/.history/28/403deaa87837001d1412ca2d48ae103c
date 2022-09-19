@@ -1,0 +1,53 @@
+package com.reto.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.reto.entity.Entidad;
+import com.reto.entity.EntidadDTO;
+import com.reto.repository.EntidadRepository;
+import com.reto.service.EntidadService;
+
+@Service
+public class EntidadImplementation implements EntidadService {
+	
+	@Autowired
+	private EntidadRepository repo;
+
+	@Override
+	public List<Entidad> listaEntidad() {
+		return repo.findAll();
+	}
+
+	@Override
+	public Entidad insertaEntidad(EntidadDTO obj) {
+		Entidad toSave = new Entidad();
+		
+		toSave.setId(obj.getId());
+		toSave.setEstado(obj.isEstado());
+		toSave.setDireccion(obj.getDireccion());
+		toSave.setTipoContribuyente();
+		return repo.save(obj);
+	}
+
+	@Override
+	public Optional<Entidad> buscarEntidadId(int id) {
+		return repo.findById(id);
+	}
+
+	@Override
+	public Optional<Entidad> buscarEntidadNumDoc(String nDoc) {
+		return repo.findByNumdocumento(nDoc);
+	}
+
+	@Override
+	public void eliminaEntidad(int id) {
+		repo.deleteById(id);
+	}
+	
+	
+	
+}

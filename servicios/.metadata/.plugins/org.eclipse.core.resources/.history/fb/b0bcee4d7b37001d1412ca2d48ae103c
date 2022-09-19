@@ -1,0 +1,17 @@
+package com.reto.impl;
+
+import java.util.Optional;
+
+import com.reto.entity.TipoDocumento;
+import com.reto.service.TipoDocumentoService;
+
+public class TipoDocumentoImplementation implements TipoDocumentoService {
+
+	@Override
+	public Optional<TipoDocumento> buscarTipo(int id) {
+		TipoDocumento oDoc;
+		
+		return 
+	}
+	
+}

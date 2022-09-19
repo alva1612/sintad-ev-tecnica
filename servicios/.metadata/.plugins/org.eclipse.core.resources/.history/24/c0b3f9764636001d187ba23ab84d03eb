@@ -1,0 +1,15 @@
+package com.reto.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name = "tb_tipo_contribuyente")
+@Data
+public class TipoContribuyente {
+	private int id;
+	private String nombre;
+	private boolean estado;
+}

@@ -1,0 +1,24 @@
+package com.reto.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.reto.entity.Entidad;
+import com.reto.repository.EntidadRepository;
+import com.reto.service.EntidadService;
+
+public class EntidadImplementation implements EntidadService {
+	
+	@Autowired
+	private EntidadRepository repo;
+
+	@Override
+	public List<Entidad> listaEntidad() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+}

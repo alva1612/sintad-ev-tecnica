@@ -1,0 +1,67 @@
+.actions {
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  gap: 8px;
+
+}
+.trash {
+  background-color: var(--primary-color);
+}
+.edit {
+  background-color: var(--secondary-color);
+}
+.trash, .edit {
+  color: var(--text-color);
+  padding: 5px;
+  width: 50px;
+  height: auto;
+  border: none;
+  border-radius: 10px;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+}
+
+.trash:hover, .edit:hover {
+  transition: 0.2s ease-in;
+  opacity: 0.8;
+}
+table {
+  margin: auto;
+  border-collapse: collapse;
+  box-shadow: 8px 7px 10px 0px rgba(0,0,0,0.14);
+  -webkit-box-shadow: 8px 7px 10px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 8px 7px 10px 0px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: var(--lighter-bg);
+  overflow: hidden;
+}
+tfoot {
+  font-weight: bold;
+}
+th {
+  padding: 5px 10px;
+  text-align: center;
+}
+tr{
+  padding: 5px;
+  transition: 0.1s ease-out;
+}
+tr:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: 0.1s ease-in;
+}
+td {
+  padding: 3px 10px;
+  text-align: center;
+  margin: auto;
+}
+tbody:nth-child(even) {
+  background-color: darkslategray;
+}
+app-add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

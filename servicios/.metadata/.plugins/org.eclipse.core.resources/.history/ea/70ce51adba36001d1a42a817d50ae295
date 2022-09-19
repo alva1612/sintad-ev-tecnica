@@ -1,0 +1,12 @@
+package com.reto.service;
+
+import java.util.List;
+
+import com.reto.entity.Entidad;
+
+public interface EntidadService {
+	
+	public abstract List<Entidad> listaEntidad();
+	public abstract Entidad insertaEntidad(Entidad obj);
+	public abstract Entidad buscarEntidadId(int id);
+}

@@ -1,0 +1,5 @@
+package com.reto.service;
+
+public interface TipoContribuyenteService {
+
+}

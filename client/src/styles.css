@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+:root {
+  --bg-color: #121212;
+  --lighter-bg: #1E1E1E;
+  --font-color: white;
+  --primary-color: #d81b60;
+  --secondary-color: #00BFA5;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-size: 1.5rem;
+  min-height: 100vh;
+}

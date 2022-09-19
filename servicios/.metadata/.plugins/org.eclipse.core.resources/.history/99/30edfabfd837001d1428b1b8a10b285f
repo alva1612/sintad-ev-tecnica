@@ -1,0 +1,65 @@
+package com.reto;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.reto.entity.Rol;
+import com.reto.entity.Role;
+import com.reto.entity.User;
+import com.reto.entity.UserRole;
+import com.reto.entity.Usuario;
+import com.reto.service.UserService;
+
+@SpringBootApplication
+public class RetoTecnicoApplication implements CommandLineRunner{
+
+	@Autowired
+	private UserService usuarioService;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(RetoTecnicoApplication.class, args);
+	}
+	
+	@Bean
+	WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").allowedOrigins("http://localhost:4200");
+			}
+		};
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		Usuario usuario = new Usuario();
+		
+		usuario.setUsername("alvaro");
+		usuario.setPassword("12345");
+		usuario.setEmail("a@gmail.com");
+		
+		Rol rol = new Rol();
+		rol.setRoleId(1L);
+		rol.setName("ADMIN");
+		
+		Set<UserRole> usuarioRoles = new HashSet<>();
+		UserRole usuarioRole = new UserRole();
+		
+		usuarioRole.setRol(rol);
+		usuarioRole.setUsuario(usuario);
+		
+		usuarioRoles.add(usuarioRole);
+		
+		User usuarioGuard = usuarioService.guardarUsuario(usuario, usuarioRoles);
+		System.out.println(usuarioGuard.getUsername());
+		
+	}
+}

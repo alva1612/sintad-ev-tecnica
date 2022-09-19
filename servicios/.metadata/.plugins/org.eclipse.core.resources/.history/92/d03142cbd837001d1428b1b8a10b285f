@@ -1,0 +1,10 @@
+package com.reto.service;
+
+import java.util.Set;
+
+import com.reto.entity.User;
+import com.reto.entity.UserRole;
+
+public interface UserService {
+	public User guardarUsuario(User user, Set<UserRole> usuarioRoles) throws Exception;
+}

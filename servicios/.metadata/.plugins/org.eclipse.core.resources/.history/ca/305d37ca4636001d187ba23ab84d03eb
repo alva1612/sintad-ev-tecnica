@@ -1,0 +1,13 @@
+package com.reto.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Table(name = "tb_entidad")
+@Entity
+public class Entidad {
+
+}

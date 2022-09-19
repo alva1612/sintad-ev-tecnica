@@ -1,0 +1,18 @@
+package com.reto.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.reto.repository.RoleRepository;
+import com.reto.repository.UsuarioRepository;
+import com.reto.service.UserService;
+
+@Service
+public class UserServiceImplementation implements UserService {
+
+	@Autowired
+	private UsuarioRepository userRepo;
+	
+	@Autowired
+	private RoleRepository roleRepo;
+}

@@ -1,0 +1,19 @@
+package com.reto.entity;
+
+import org.springframework.boot.context.properties.ConstructorBinding;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@ConstructorBinding
+@Getter
+@Setter
+public class JwtRequest {
+	private String username;
+	private String password;
+	
+	public JwtRequest() {
+		
+	}
+	
+}

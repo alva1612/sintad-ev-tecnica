@@ -1,0 +1,5 @@
+package com.reto.repository;
+
+public interface UsuarioRepository {
+
+}

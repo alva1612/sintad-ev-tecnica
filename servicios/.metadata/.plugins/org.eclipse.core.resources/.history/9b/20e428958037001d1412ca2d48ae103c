@@ -1,0 +1,11 @@
+package com.reto.service;
+
+import java.util.Optional;
+
+import com.reto.entity.TipoDocumento;
+
+public interface TipoDocumentoService {
+	public abstract Optional<TipoDocumento> buscarTipo(int id);
+	
+	public abstract List<TIpoDocumento> listar();
+}

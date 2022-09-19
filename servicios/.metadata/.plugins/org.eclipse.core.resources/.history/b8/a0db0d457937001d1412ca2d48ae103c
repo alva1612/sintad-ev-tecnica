@@ -1,0 +1,5 @@
+package com.reto.service;
+
+public interface TipoContribuyenteService {
+	public abstract Optional<TipoContribuyente> buscarTipo(int id);
+}
